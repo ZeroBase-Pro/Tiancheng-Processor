@@ -1,7 +1,39 @@
 # Tiga Processor
 The Diga processor is a BNB Chain blockchain hash header verification tool written using Gnark. This circuit is mainly used in scenarios where ZK cross-chain bridges need to verify the original information of blocks. Diga references PolyhedraZK's ExpanderCompilerCollection for circuit compilation.
 
+## Workflow
 
+Our realization of gnark-based BSC light client(or zklightclient for BSC chain) is in ``./examples/BSC/main.go``
+
+
+### Complie and Output the Circuit 
+
+To compile the circuit, and ouput the optimized layered circuit, as well as the witness, just run:
+
+```
+go run ./examples/BSC/main.go
+```
+
+You can find the ``circuit.txt`` and ``witness.txt`` in the ``./examples/BSC/`` directory.
+
+
+### Prove the Circuit
+
+To prove the circuit,it's recommanded that you put the ``circuit.txt`` and ``witness.txt`` in the ``./data`` directory. Then run:
+
+```
+RUSTFLAGS="-C target-cpu=native" cargo run --bin expander-exec --release -- prove ./data/circuit.txt ./data/witness.txt ./data/out.bin
+```
+
+It will produce the a binary called ``out.bin`` for verification.
+
+### Verify the Circuit
+
+To verify the circuit, in the same directory above, run:
+
+```
+RUSTFLAGS="-C target-cpu=native" cargo run --bin expander-exec --release -- verify ./data/circuit.txt ./data/witness.txt ./data/out.bin
+```
 
 ## Logical Introduction(Expander Version)
 
@@ -47,3 +79,13 @@ Set Inputs: Creates an instance of Circuit and assigns values to each field, whi
 Generate Witness: Uses the solver to generate the circuit's witness and saves it to a witness.txt file.
 
 Verify the Circuit: Uses the test function test.CheckCircuit to verify if the generated witness is correct.
+
+## Gnark Only Version
+
+Due to the fact that the Expander version is verified off chain, we offer only the GnRH version deployed on the BNB test network.
+
+Contract address : 
+
+PK&VK: /gnarkversion/key.zip
+
+
