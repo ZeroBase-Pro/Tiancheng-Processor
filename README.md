@@ -3,7 +3,7 @@ The Diga processor is a BNB Chain blockchain hash header verification tool writt
 
 
 
-## Logical Introduction
+## Logical Introduction(Expander Version)
 
 os: Used for file operations.
 
