@@ -3,6 +3,7 @@
 
 The Tiga processor is a BNB Chain blockchain hash header verification tool written using Gnark. This circuit is mainly used in scenarios where ZK cross-chain bridges need to verify the original information of blocks. Diga references PolyhedraZK's ExpanderCompilerCollection for circuit compilation.
 
+
 ## Workflow
 
 Our realization of gnark-based BSC light client(or zklightclient for BSC chain) is in ``./examples/BSC/main.go``
@@ -36,6 +37,8 @@ To verify the circuit, in the same directory above, run:
 ```
 RUSTFLAGS="-C target-cpu=native" cargo run --bin expander-exec --release -- verify ./data/circuit.txt ./data/witness.txt ./data/out.bin
 ```
+
+<img src="https://github.com/ZeroBase-Pro/Tiga-Processor/blob/main/ok.png" width="1280" >
 
 ## Logical Introduction(Expander Version)
 
