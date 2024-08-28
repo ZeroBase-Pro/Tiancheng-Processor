@@ -89,7 +89,7 @@ Verify the Circuit: Uses the test function test.CheckCircuit to verify if the ge
 
 Due to the fact that the Expander version is verified off chain, we offer only the GnRH version deployed on the BNB test network.
 
-Contract address : 
+Contract address : (0xa8130A2bcC1B1df81303a0fd730a6dC1dfE9AB21)[https://testnet.bscscan.com/address/0xa8130A2bcC1B1df81303a0fd730a6dC1dfE9AB21]
 
 PK&VK: /gnarkversion/key.zip
 
